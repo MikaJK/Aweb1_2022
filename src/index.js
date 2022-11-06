@@ -20,11 +20,9 @@ async function getData(imageContainer, breedName) {
   );
 
   var imageUrl = await randomPicture.json();
-  const response = await fetch(imageUrl["message"]);
-  const blob = await response.blob();
-  const url = URL.createObjectURL(blob);
+
   const image = new Image();
-  image.src = url;
+  image.src = imageUrl["message"];
   image.className = "wiki-img";
   imageContainer.append(image);
   return image;
